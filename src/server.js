@@ -182,7 +182,7 @@ app.put('/api/settings', auth, wrap(async (req, res) => {
 }));
 
 // Serve the frontend too, so http://localhost:5000 works with no extra step.
-app.use(express.static(path.join(__dirname, '..', '..', 'frontend')));
+   app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 app.use('/api', (req, res) => fail(res, 'Not found.', 404));
 app.use((err, req, res, next) => {
