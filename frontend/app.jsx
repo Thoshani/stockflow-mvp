@@ -314,7 +314,7 @@ function App() {
 
   const notify = (m) => { setToast(m); setTimeout(() => setToast(''), 2200); };
   if (loading) return <p className="p-8 text-slate-600">Loading…</p>;
-  if (!session) return <AuthPage onAuth={setSession} />;
+   if (!session) return <AuthPage onAuth={(d) => { location.hash = 'dashboard'; setSession(d); }} />;
 
   const org = session.organization;
   const tabs = ['dashboard', 'products', 'settings'];
