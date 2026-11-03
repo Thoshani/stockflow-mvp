@@ -1,7 +1,7 @@
 const { useState, useEffect } = React;
 
 // Backend address: same origin when served by Express (port 5000), otherwise localhost:5000 (Live Server).
-const API = location.port === '5000' ? '' : 'http://localhost:5000';
+const API = (['localhost', '127.0.0.1'].includes(location.hostname) && location.port !== '5000') ? 'http://localhost:5000' : '';
 
 async function api(path, opts = {}) {
   const token = localStorage.getItem('sf_token');
